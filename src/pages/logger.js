@@ -1,4 +1,3 @@
-import { getCurrentTime, getCurrentDate } from '../lib/dates'
 import EventForm from '../forms/eventForm'
 import EventHistory from '../components/eventHistory'
 import { useEventContext } from '../contexts/eventContext'
