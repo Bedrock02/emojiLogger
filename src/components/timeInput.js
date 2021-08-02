@@ -2,6 +2,10 @@ import { useFormContext } from '../contexts/formContext'
 
 const fieldName = 'timestamp'
 
+const styles = {
+  padding: '30px'
+}
+
 const TimeInput = () => {
 
   const { updateForm } = useFormContext()
@@ -15,13 +19,13 @@ const TimeInput = () => {
     today.setMinutes(minutes)
 
     updateForm({
-      [fieldName]: today.toUTCString(),
+      [fieldName]: today.toLocaleString(),
     })
   }
   
   return (
     <div>
-      <label htmlFor="eventTime">Time of Event:</label>
+      <label htmlFor="eventTime" style={styles}>Time of Event:</label>
       <input
         name="eventTime"
         type="time"

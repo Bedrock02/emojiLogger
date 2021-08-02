@@ -9,7 +9,9 @@ const EventForm = ({ handleSubmit }) => {
   return (
     <form id="eventForm">
       <EmojiOptions />
+      <br/>
       <TimeInput />
+      <br/>
       <button
         onClick={(e) => {
           e.preventDefault()

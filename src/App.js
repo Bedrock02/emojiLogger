@@ -3,6 +3,7 @@ import { FormProvider } from './contexts/formContext'
 import { EventProvider } from './contexts/eventContext'
 import Logger from './pages/logger'
 
+
 function App() {
   return (
     <div className="App">

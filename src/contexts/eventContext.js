@@ -2,7 +2,6 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
 } from 'react'
 
 
@@ -10,14 +9,26 @@ const EventContext = createContext()
 
 function EventProvider({ children }) {
   const [events, setEvents] = useState([])
-  const value = { events, addEvent }
+  const [eventCounter, setEventCounter] = useState({})
+  const value = { events, addEvent, eventCounter }
 
-  useEffect(() => {
-    console.log(events)    
-  }, [events])
+  function addEventToCount({event}) {
+    const newCounterState = {
+      ...eventCounter,
+      ...(event in eventCounter ? {[event]: eventCounter[event] + 1} : {[event]: 1})
+    }
+
+    setEventCounter(newCounterState)
+  }
 
   function addEvent(event) {
     const newEvent = [...events, event]
+    newEvent.sort( (a, b) => {
+      const aDate = Date.parse(a.timestamp)
+      const bDate = Date.parse(b.timestamp)
+      return aDate < bDate
+    })
+    addEventToCount(event)
     setEvents(newEvent)
   }
 

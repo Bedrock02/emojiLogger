@@ -1,7 +1,9 @@
 import { useFormContext } from '../contexts/formContext'
 import { EMOJI_NAMES, getEmojiByName } from '../lib/helpers'
 
-
+const styles = {
+  padding: '30px'
+}
 const fieldName = 'event'
 
 const EmojiOptions = () => {
@@ -16,7 +18,7 @@ const EmojiOptions = () => {
   
   return (
     <div>
-      <label htmlFor={fieldName}>Select An Event:</label>
+      <label htmlFor={fieldName} style={styles}>Select An Event:</label>
       <select name={fieldName} onChange={handleSelectdOption}>
         <option value="">Please choose an event</option>
         {EMOJI_NAMES.map( name => {

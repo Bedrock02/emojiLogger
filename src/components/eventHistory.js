@@ -6,15 +6,18 @@ const styles = {
   overflowY: 'scroll'
 }
 
+const timestampStyles = {
+  fontSize: '.7em'
+}
+
 const EventHistory = () => {
   const { events } = useEventContext()
-
   return (
     <div id="eventContainer" style={styles}>
       {events.map(({ event, timestamp }) => (
           <div>
-              <span>@{timestamp}</span>
-              <span>{getEmojiByName(event)}</span>
+              <span>{getEmojiByName(event)} - </span>
+              <span style={timestampStyles}>{timestamp}</span>
           </div>
         )
       )}
